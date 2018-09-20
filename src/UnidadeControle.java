@@ -18,5 +18,19 @@ public class UnidadeControle extends BancoRegistradores{
         String[] decodificacao = instrucao.split(" ");
         return decodificacao;
     }
+    public void carregar(String[]memoria,int endereco){
+        System.out.println("CARREGANDO...................................................");
+        br.setMar(endereco);
+        br.setMbr(memoria[br.getMar()]);
+        br.setAcc(Integer.valueOf(br.getMbr()));
+        System.out.println(br.getAcc());
+    }
     
+    
+    public void salvar(String[]memoria,int endereco){
+      System.out.println("SALVANDO..............................................");
+      br.setMar(endereco);
+      memoria[br.getMar()] = String.valueOf(br.getAcc()); 
+        
+    }
 }
