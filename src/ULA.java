@@ -16,5 +16,12 @@ public class ULA  extends BancoRegistradores{
         br.setAcc(br.getAcc() + Integer.valueOf(br.getMbr()));
         return br.getAcc();
     }
+    public int subtrair(String[]memoria, int endereco){
+        System.out.println("SUBTRAINDO");
+        br.setMar(endereco);
+        br.setMbr(memoria[br.getMar()]);
+        br.setAcc(br.getAcc() - Integer.valueOf(br.getMbr()));
+        return br.getAcc();
+    }
     
 }
