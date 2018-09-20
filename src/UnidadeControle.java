@@ -14,5 +14,9 @@ public class UnidadeControle extends BancoRegistradores{
         br.setIr(br.getMbr());
         return br.getIr();
     }
-
+    public String[] decodificar(String instrucao) {
+        String[] decodificacao = instrucao.split(" ");
+        return decodificacao;
+    }
+    
 }
