@@ -1,7 +1,7 @@
 public class Memoria {
-
+String[] memoria = new String[110];
+int end;
 public String[] retornarMemoria(){
-        String[] memoria = new String[110];
         memoria[0] = "CARR 100";
         memoria[1] = "SOMA 98";
         memoria[2] = "SOMA 99";
@@ -26,6 +26,15 @@ public String[] retornarMemoria(){
         }
         return memoria;
 }
+public void setEndereco(int end){
+    this.end =  end;
+}
+
+public String getDados(){
+    return memoria[end];
+}
+
+
     
         
 
