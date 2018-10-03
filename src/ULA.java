@@ -1,14 +1,12 @@
-public class ULA {
-    private BancoRegistradores br;
 
-    public ULA() {
-    }
+public class ULA {
+    
+    private BancoRegistradores br ;
 
     public ULA(BancoRegistradores br) {
-        this.br = br;
+       this.br = br;
     }
-    
-    
+
     public BancoRegistradores getBr() {
         return br;
     }
@@ -17,23 +15,28 @@ public class ULA {
         this.br = br;
     }
     
-    public int somar(String[] memoria, int endereco){
-       System.out.println("SOMANDO...");
-       br.setMar(endereco);
-       br.setMbr(memoria[br.getMar()]);
-       br.setAcc(br.getAcc() + Integer.valueOf(br.getMbr()));
-       return br.getAcc();
+    
+    
+    //Função referente a somar, pega o que tá no acc e soma com o dado
+    //que foi passado
+    public void somar(String dado){
+      br.setMbr(dado);
+      br.setAcc(br.getAcc() + Integer.parseInt(br.getMbr()));
+    }
+    //Função referente a somar, pega o que tá no acc e subtrai com o dado
+    //que foi passado
+    public void subtrair(String dado){
+      br.setMbr(dado);
+      br.setAcc(br.getAcc() - Integer.parseInt(br.getMbr()));  
     }
     
     
-     public int subtrair(String[] memoria, int endereco){
-       System.out.println("SUBTRAINDO...");
-       br.setMar(endereco);
-       br.setMbr(memoria[br.getMar()]);
-       br.setAcc(br.getAcc() - Integer.valueOf(br.getMbr()));
-         System.out.println();
-       return br.getAcc();
-    }
+    
+    
+    
+    
+    
+    
     
     
 }
