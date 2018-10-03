@@ -1,26 +1,25 @@
-public class BancoRegistradores {
 
-    private int acc;
+public class BancoRegistradores {
+    private String mbr;
+    private String ir;
     private int pc;
     private int mar;
-    private String ir;
-    private String mbr;
+    private int acc;
 
-    public BancoRegistradores() {
-        mar = pc;
+    public String getMbr() {
+        return mbr;
     }
 
-    @Override
-    public String toString() {
-        return "BancoRegistradores{" + "acc=" + acc + ", pc=" + pc + ", mar=" + mar + ", ir=" + ir + ", mbr=" + mbr + '}';
+    public void setMbr(String mbr) {
+        this.mbr = mbr;
     }
 
-    public int getAcc() {
-        return acc;
+    public String getIr() {
+        return ir;
     }
 
-    public void setAcc(int acc) {
-        this.acc = acc;
+    public void setIr(String ir) {
+        this.ir = ir;
     }
 
     public int getPc() {
@@ -39,20 +38,20 @@ public class BancoRegistradores {
         this.mar = mar;
     }
 
-    public String getIr() {
-        return ir;
+    public int getAcc() {
+        return acc;
     }
 
-    public void setIr(String ir) {
-        this.ir = ir;
+    public void setAcc(int acc) {
+        this.acc = acc;
     }
 
-    public String getMbr() {
-        return mbr;
+    @Override
+    public String toString() {
+        return "BancoRegistradores{" + "mbr=" + mbr + ", ir=" + ir + ", pc=" + pc + ", mar=" + mar + ", acc=" + acc + '}';
     }
 
-    public void setMbr(String mbr) {
-        this.mbr = mbr;
-    }
-
+    
+    
+    
 }
