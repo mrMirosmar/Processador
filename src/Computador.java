@@ -1,56 +1,40 @@
 
 public class Computador {
-     
-    public static void main(String[] args) {
-    Processador pro = new Processador();
-    Memoria mem = new Memoria();
-    
-    
-       /*for(int i=0; i < mem.retornarMemoria().length; i++){
-           System.out.println(mem.retornarMemoria()[i]); 
-       }*/
 
-    
+    public static void main(String[] args) {
+
+        Processador p = new Processador();
+        Memoria m = new Memoria();
+        boolean salvar = false;
         
-        mem.setEnd(pro.getEnd());
-        pro.setDados(mem.getMemoria()[mem.getEnd()]);
-        String [] retorno = pro.buscar2(mem.getMemoria()[mem.getEnd()]);
-        for(int i=0; i < retorno.length; i++){
-            System.out.println(retorno[i]);
+        m.preencherMemoria();
+         
+        System.out.println("Memória ínicialmente:\n");
+        m.imprimirMem();
+        System.out.println("\n\n");
+        System.out.println("\n\nRegistradores ínicialmente:\n");
+        System.out.println(p.getBr().toString());
+        System.out.println("\n\n");
+        
+        for (int i = 0; i < m.getMemoria().length; i++) {
+            m.setEnd(p.buscar1());//Buscar end em MAR 
+            p.setInstrucao(m.barramentoDadosMemoria());//Setar istrunção que foi passada através do b/Dados
+            p.interpretarInstrucao();//Interpretar istrunção
+            p.decodificar();//Decodificar
+            p.buscar2();
+            m.setEnd(p.getEnd());
+            p.setDados(m.barramentoDadosMemoria());
+            salvar = p.processar();
+            if(salvar){
+              m.setInstrucao(String.valueOf(p.getBr().getAcc()));
+              m.escMem();
+            }
+            System.out.println("");
+
         }
+        System.out.println("\n\nMemória Final:\n");
+        m.imprimirMem();
+       
         
-        //System.out.println(mem.retornarMemoria()[mem.getEndereco()]);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    /*
-    
-    pro.buscar();
-    
-    pro.setDados(mem.getDados());
-    pro.buscar2();
-    pro.dec();
-    pro.buscarDados();
-    mem.setEnd(pro.getEnd());
-    pro.setDados(mem.getDados());
-    */
-    
-        
-        
-        
-        
-    /* mem.setEndereco(pro.getMar());
-    pro.setMBR(mem.getDados());
-    pro.buscar2();*/
-    
     }
-    
-    
-    
 }
