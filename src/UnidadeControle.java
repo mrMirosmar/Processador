@@ -1,7 +1,6 @@
 public class UnidadeControle {
 
    private BancoRegistradores br;
-   Memoria mem = new Memoria();
    
     public UnidadeControle() {
         br = new BancoRegistradores();
@@ -19,7 +18,7 @@ public class UnidadeControle {
     public String buscar(){
         br.setMar(br.getPc());
         br.setPc(br.getPc()+1);
-        br.setMbr(mem.retornarMemoria()[br.getMar()]);
+        //br.setMbr(mem.retornarMemoria()[br.getMar()]);
         br.setIr(br.getMbr());
         return br.getIr();
     }
