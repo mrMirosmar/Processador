@@ -1,7 +1,13 @@
+
 public class Memoria {
-String[] memoria = new String[110];
-int end;
-public String[] retornarMemoria(){
+
+    private int end;
+    private String instrucao;
+    private String[] memoria;
+
+    //Função referente ao preenchimento da memória
+    public void preencherMemoria(){
+        memoria = new String[105];
         memoria[0] = "CARR 100";
         memoria[1] = "SOMA 98";
         memoria[2] = "SOMA 99";
@@ -19,59 +25,58 @@ public String[] retornarMemoria(){
         memoria[99] = "5";
         memoria[100] = "2";
 
-        for (int index = 4; index < memoria.length; index++) {
+        for (int index = 0; index < memoria.length; index++) {
             if (memoria[index] == null) {
                 memoria[index] = "0";
             }
         }
-        return memoria;
-}
-public void setEndereco(int end){
-    this.end =  end;
-}
-
-public String getDados(){
-    return memoria[end];
-}
-
-
+    }
     
-        
+    
+ //Função para ficar imprimindo a memória
+  public void imprimirMem(){
+      for (int i = 0; i < memoria.length; i++) {
+          System.out.println("Posição: "+i+":"+memoria[i]);
+      }
+  }
+    
+    
+    
+    
+    
+    
+    //Retorna dados através do barramento
+    public String barramentoDadosMemoria() {   
+        return this.instrucao = memoria[end];
+    }
+    
+    //Função para escrever na memória (SALVAR)
+    public void escMem(){
+        memoria[end] = this.instrucao;
+    }
 
-        /*  System.out.println(instrucao);
-            System.out.println(posicao);*/
-        /*
-        
-        UnidadeControle uc = new UnidadeControle();
-        ULA ula = new ULA(uc.retornarObj());
-         
-       int posicao = 0;
-        for (int pos = 0; pos < memoria.length; pos++) {
-            //AÇÃO: BUSCAR INSTRUÇÃO
-            String instrucaoPosicao = uc.buscar(memoria);
-            //AÇÃO: DECODIFICAR INSTRUÇÃO
-            String[] decodificacao = uc.decodificar(instrucaoPosicao);
-            String instrucao = decodificacao[0];
-            if(decodificacao.length > 1){
-             posicao = Integer.valueOf(decodificacao[1]);  
-            }
+    public int getEnd() {
+        return end;
+    }
 
-            if (instrucao.equals("CARR")) {
-                 System.out.println(uc.retornarObj().toString());
-                uc.carregar(memoria, posicao);
-            } else if (instrucao.equals("SOMA")) {
-                 System.out.println(uc.retornarObj().toString());
-                System.out.println("SOMA = "+ula.somar(memoria, posicao));
-            } else if (instrucao.equals("SALVA")) {
-                 System.out.println(uc.retornarObj().toString());
-                uc.salvar(memoria, posicao);
-            } else if (instrucao.equals("SUB")) {
-                System.out.println(uc.retornarObj().toString());
-                System.out.println("SUBTRAINDO = "+ula.subtrair(memoria, posicao));
-            }
-            
-            
-            System.out.println("------------------------------");
-        }*/
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public String getInstrucao() {
+        return instrucao;
+    }
+
+    public void setInstrucao(String instrucao) {
+        this.instrucao = instrucao;
+    }
+
+    public String[] getMemoria() {
+        return memoria;
+    }
+
+    public void setMemoria(String[] memoria) {
+        this.memoria = memoria;
+    }
 
 }
